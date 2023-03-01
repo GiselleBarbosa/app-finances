@@ -11,13 +11,16 @@ export class HeaderComponent implements OnInit {
   btnlogin: string = 'login';
   btnlogout: string = 'logout';
 
-  constructor(private router: Router, public afAuth: AngularFireAuth) {}
+  constructor(
+    private router: Router, 
+    // public afAuth: AngularFireAuth
+    ) {}
 
   ngOnInit(): void {}
 
   onlogout(): void {
     console.log('logout');
     this.router.navigate(['/']);
-    this.afAuth.signOut();
+    // this.afAuth.signOut();
   }
 }

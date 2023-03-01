@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 import { of, Observable } from 'rxjs';
@@ -15,6 +15,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./transaction-table.component.scss'],
 })
 export class TransactionTableComponent implements OnInit {
+  @Input()
   tableItems$: Observable<Transactions[]> = this.service.getAll();
 
   displayedColumns: string[] = [
@@ -33,14 +34,14 @@ export class TransactionTableComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.tableItems$.pipe(
+/*     this.tableItems$.pipe(
       catchError((err) => {
         this.onError(
           'Houve um erro ao exibir o extrato. Tente novamente mais tarde.'
         );
         return of([]);
       })
-    )
+    ); */
   }
 
   onDelete(items: Transactions) {
